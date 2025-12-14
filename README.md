@@ -5,7 +5,7 @@
 TimeCurrency is an ethical browser extension that automatically converts e-commerce prices into **work hours** based on your own salary.
 Version 1.0 introduces **automatic currency conversion** and multilingual support.
 
-![Version](https://img.shields.io/badge/version-3.0-blue)
+![Version](https://img.shields.io/badge/version-1.0-blue)
 ![License](https://img.shields.io/badge/license-GPLv3-green)
 ![Language](https://img.shields.io/badge/languages-English%20%2F%20Fran%C3%A7ais-orange)
 
