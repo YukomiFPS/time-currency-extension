@@ -3,7 +3,7 @@
 **Don't spend money. Spend time.**
 
 TimeCurrency is an ethical browser extension that automatically converts e-commerce prices into **work hours** based on your own salary.
-Version 3.0 introduces **automatic currency conversion** and multilingual support.
+Version 1.0 introduces **automatic currency conversion** and multilingual support.
 
 ![Version](https://img.shields.io/badge/version-3.0-blue)
 ![License](https://img.shields.io/badge/license-GPLv3-green)
@@ -14,7 +14,7 @@ In a global economy, it's hard to realize the true value of money.
 - **The Problem:** A $100 USD item on an American site might look like "5 hours" of work if you earn $20/h. But if your salary is in CAD, it actually costs you **~7 hours**.
 - **The Solution:** TimeCurrency detects the website's currency, applies the daily exchange rate, adds your local taxes, and reveals the TRUE cost in work hours.
 
-## 🚀 V3 Features (Pro)
+## 🚀 V1 Features (Pro)
 
 ### 1. 🌎 Smart International Conversion
 Shop anywhere.
