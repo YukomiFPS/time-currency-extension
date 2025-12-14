@@ -1,0 +1,27 @@
+# --- Fichiers Système (Poubelle Windows/Mac) ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Fichiers de l'Éditeur (VS Code, etc.) ---
+.vscode/
+.idea/
+*.swp
+
+# --- Sécurité Chrome Extension (TRÈS IMPORTANT) ---
+# Quand tu crées un paquet Chrome, il génère une clé privée (.pem).
+# NE JAMAIS METTRE CA SUR GITHUB !
+*.pem
+*.crx
+
+# --- Fichiers Temporaires ---
+# On ne veut pas stocker les fichiers ZIP sur GitHub, juste le code source
+*.zip
+*.log
+node_modules/
+
+# --- Outils et Rapports ---
+generer_contexte.py
+CONTEXTE_PROJET.txt
+__pycache__/
+

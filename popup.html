@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- VARIABLES DE COULEURS --- */
+    :root {
+      /* Thème Clair */
+      --bg-color: #f8f5f0;
+      --container-bg: #ffffff;
+      --text-color: #1a1a2e;
+      --accent-color: #cfb16a;
+      --accent-hover: #b39752;
+      --border-color: #e6dfd3;
+      --input-bg: #fcfcfc;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    /* Thème Sombre */
+    body.dark-theme {
+      --bg-color: #0b1120;
+      --container-bg: #162032;
+      --text-color: #f8f5f0;
+      --border-color: #2a3a55;
+      --input-bg: #1e293b;
+      --shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* --- STYLE GÉNÉRAL --- */
+    body {
+      width: 300px;
+      padding: 0;
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px 10px 20px;
+    }
+    .header-titles { text-align: left; }
+    h3 {
+        margin: 0;
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+    p.subtitle {
+        margin: 2px 0 0 0;
+        font-size: 12px;
+        opacity: 0.8;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    #themeToggle {
+        background: none; border: none; cursor: pointer; font-size: 20px; color: var(--text-color);
+        padding: 5px; border-radius: 50%; transition: background 0.2s;
+    }
+    #themeToggle:hover { background-color: rgba(207, 177, 106, 0.1); }
+
+    .container {
+      margin: 0 20px 20px 20px;
+      padding: 20px;
+      background: var(--container-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-color);
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 15px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border-radius: 6px;
+      outline: none;
+      margin-bottom: 12px;
+      font-family: 'Lato', sans-serif;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: var(--accent-color); }
+
+    /* Style spécifique pour le groupe flexible */
+    .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+    .input-group input { margin-bottom: 0; width: 60%; }
+    .input-group select { margin-bottom: 0; width: 40%; font-size: 13px; padding: 5px; }
+
+    button#saveBtn {
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+      color: white;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px rgba(207, 177, 106, 0.2);
+      margin-top: 5px;
+    }
+    button#saveBtn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 8px rgba(207, 177, 106, 0.3);
+    }
+    button#saveBtn:active { transform: translateY(1px); }
+
+    #status { height: 18px; font-size: 12px; margin-top: 10px; font-weight: bold; text-align: center; }
+
+    footer {
+      padding: 15px 20px 20px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+    }
+    #coffeeLink {
+      color: var(--text-color);
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 12px;
+      display: inline-block;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+      border-bottom: 1px dashed var(--accent-color);
+    }
+    #coffeeLink:hover { color: var(--accent-color); }
+    
+    .copyright {
+        font-size: 10px;
+        opacity: 0.6;
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 0.5px;
+        color: var(--text-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-titles">
+        <h3 data-i18n="headerTitle">TimeCurrency</h3>
+        <p class="subtitle" data-i18n="headerSubtitle">Édition Monde</p>
+    </div>
+    <button id="themeToggle" title="Changer le thème">☀︎</button>
+  </header>
+
+  <div class="container">
+    <label data-i18n="lblWage">Revenu</label>
+    <div class="input-group">
+        <input type="number" id="wageInput" placeholder="0">
+        <select id="wagePeriod">
+            <option value="hour" data-i18n="optHour">/ Heure</option>
+            <option value="year" data-i18n="optYear">/ An</option>
+            <option value="month" data-i18n="optMonth">/ Mois</option>
+            <option value="week" data-i18n="optWeek">/ Semaine</option>
+        </select>
+    </div>
+
+    <label data-i18n="lblCurrency">Devise</label>
+    <select id="currencySelect">
+        <option value="USD">USD ($ American)</option>
+        <option value="CAD">CAD ($ Canadian)</option>
+        <option value="EUR">EUR (€ Euro)</option>
+        <option value="GBP">GBP (£ Pound)</option>
+    </select>
+
+    <label data-i18n="lblTax">Taxes Locales (%)</label>
+    <input type="number" id="taxInput">
+
+    <label data-i18n="lblBudget">Budget Mensuel (Heures)</label>
+    <input type="number" id="budgetInput">
+
+    <button id="saveBtn" data-i18n="btnSave">ENREGISTRER</button>
+    <p id="status"></p>
+
+    <div style="margin-top: 15px; border-top: 1px dashed var(--border-color); padding-top: 15px;">
+        <label data-i18n="lblSiteSettings" style="opacity: 0.8;">Paramètres du site</label>
+        <p id="currentSite" style="font-size: 10px; color: var(--text-color); margin: 0 0 8px 0; opacity: 0.6;">...</p>
+        <button id="toggleSiteBtn" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-color); font-size: 11px; padding: 8px; width: 100%; border-radius: 6px; cursor: pointer;">
+            Chargement...
+        </button>
+    </div>
+
+  </div>
+
+  <footer>
+    <div><span id="coffeeLink" data-i18n="lnkSupport">☕ Soutenir le projet</span></div>
+    <div class="copyright">© 2025 Souvenirs Parlants</div>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
